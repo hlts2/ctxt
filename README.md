@@ -1,6 +1,6 @@
 # ctxt
 
-ctext is a simple CLI tool for categorizing text.
+ctxt is a simple CLI tool for categorizing text.
 
 This package aims to categorize the content to be described in the CHANGELOG.
 

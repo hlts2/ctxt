@@ -76,6 +76,7 @@ func run(cmd *cobra.Command, r io.Reader) error {
 			continue
 		}
 		if len(texts) <= 1 {
+			delete(result, n)
 			result[uncategorizedName] = append(result[uncategorizedName], texts...)
 			continue
 		}
