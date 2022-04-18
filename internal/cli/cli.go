@@ -64,7 +64,11 @@ func run(cmd *cobra.Command, r io.Reader) error {
 		}
 
 		name := sp[index]
-		result[name] = append(result[name], text)
+		if len(name) == 0 {
+			result[uncategorizedName] = append(result[uncategorizedName], text)
+		} else {
+			result[name] = append(result[name], text)
+		}
 	}
 
 	for n, texts := range result {
