@@ -10,9 +10,9 @@ import (
 )
 
 var (
-	sep               string
 	file              string
-	idx               uint
+	sep               string
+	index             uint
 	uncategorizedName string
 )
 
@@ -42,7 +42,7 @@ func Run(version string, args ...string) error {
 
 	cmd.PersistentFlags().StringVarP(&file, "file", "f", "", "set file path")
 	cmd.PersistentFlags().StringVarP(&sep, "sep", "s", "", "set line separator")
-	cmd.PersistentFlags().UintVarP(&idx, "index", "i", 0, "set which elements of the line separator are categorized")
+	cmd.PersistentFlags().UintVarP(&index, "index", "i", 0, "set which elements of the line separator are categorized")
 	cmd.PersistentFlags().StringVar(&uncategorizedName, "uncategorized-name", "others", "set uncategorized name")
 
 	return cmd.Execute()
@@ -53,17 +53,17 @@ func run(cmd *cobra.Command, r io.Reader) error {
 
 	result := make(map[string][]string) // key: category name, value: texts.
 
-	idx := int(idx)
+	index := int(index)
 	for sc.Scan() {
 		text := sc.Text()
 
 		sp := strings.Split(text, sep)
-		if idx > len(sp) {
+		if index > len(sp) {
 			result[uncategorizedName] = append(result[uncategorizedName], text)
 			continue
 		}
 
-		name := sp[idx]
+		name := sp[index]
 		result[name] = append(result[name], text)
 	}
 
@@ -71,7 +71,7 @@ func run(cmd *cobra.Command, r io.Reader) error {
 		if n == uncategorizedName {
 			continue
 		}
-		if len(texts) == 1 || len(n) == 0 {
+		if len(texts) <= 1 {
 			result[uncategorizedName] = append(result[uncategorizedName], texts...)
 			continue
 		}
