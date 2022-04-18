@@ -33,5 +33,5 @@ Flags:
 The following is an example to integrate with git log command.
 
 ```
- git log --pretty=format:"- %s" v0.0.1..master | ctxt --sep=" " --index=1
+ git log --pretty=format:"- %s" v0.0.1..main | ctxt --sep=" " --index=1
 ```
