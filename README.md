@@ -7,7 +7,7 @@ This package aims to categorize the content to be described in the CHANGELOG.
 # Install
 
 ```
-go install github.com/hlts2/ctxt
+go install github.com/hlts2/ctxt/cmd/ctxt
 ```
 
 # Usage
