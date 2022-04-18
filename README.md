@@ -2,7 +2,7 @@
 
 ctxt is a simple CLI tool for categorizing text.
 
-This package aims to categorize the content to be described in the CHANGELOG.
+This tool aims to categorize the content to be described in the CHANGELOG.
 
 # Install
 
