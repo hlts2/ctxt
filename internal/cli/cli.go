@@ -42,7 +42,7 @@ func Run(version string, args ...string) error {
 
 	cmd.PersistentFlags().StringVarP(&file, "file", "f", "", "set file path")
 	cmd.PersistentFlags().StringVarP(&sep, "sep", "s", "", "set line separator")
-	cmd.PersistentFlags().UintVarP(&index, "index", "i", 0, "set which elements of the line separator are categorized")
+	cmd.PersistentFlags().UintVarP(&index, "index", "i", 0, "set which element of the separation are to be used")
 	cmd.PersistentFlags().StringVar(&uncategorizedName, "uncategorized-name", "others", "set uncategorized name")
 
 	return cmd.Execute()
