@@ -56,9 +56,12 @@ func run(cmd *cobra.Command, r io.Reader) error {
 	index := int(index)
 	for sc.Scan() {
 		text := sc.Text()
+		if len(text) < 1 {
+			continue
+		}
 
 		sp := strings.Split(text, sep)
-		if index > len(sp) {
+		if index >= len(sp) {
 			result[uncategorizedName] = append(result[uncategorizedName], text)
 			continue
 		}
